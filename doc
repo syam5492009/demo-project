@@ -1,0 +1,58 @@
+Various components
+
+1. HomePage
+2. CreatePage
+3. EditPage also (which will do edit functinality)
+
+HomePage ---> We need to use useEffect hook which will help us to get the information from DB.
+
+When we are calling any DB call, We have different approaches ( Asynchronous calling) ---> We will use useEffect (onloading with empty array)
+1.axios -- well versed and developer friendly API call 2. fetch ( default ) -- No need of package installation
+
+Asynchronous call means ---> This will return result after some time (tasks run simultanesously)
+
+But your UI won't break
+
+Suppose If I want to have a value which can shared between all the components , we can use Context
+
+// Context is created whenever we need a value in all our components (props) - store the value Globally
+
+1. const backgroundColor=React.createContext();
+
+2. <backgroundColor.Provider value="pink" > -- globally we can use this value
+
+//Add component
+
+3. const value=useContext(backgroundColor)
+
+User Information System
+
+Work flow
+
+1. While initial render we have to load the users information ---- useEffect hook without any dependencies []-- rerender based on dependencies
+
+2. If i click on delete , i need to delete the record (temporariry ) not in originaal DB -- useState hook - temporary updation
+
+3. If i click on Add button, i need to redirect the user to another page with route name (create) -- traverse (routing) --- react-router-dom v6 (useNavigate hook)
+
+4. Whenever I am loading the create component , I need to trigger / focus the input element to ID text box (useRef)
+
+5. After clicking on sumbit button, it needs to store in Database by using
+
+fetch -default
+
+<!--
+fetch (API)
+result.json() -->
+
+1. it needs 2 promise calls
+
+Most axios
+
+one promise call
+
+axios.get(API)
+
+axios / fetch
+
+6. Redirect the link to home page
